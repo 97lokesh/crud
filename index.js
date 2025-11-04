@@ -15,7 +15,9 @@ addTask.addEventListener('click',()=>{
         users[editIndex].email = emailInput.value;
          isEditing = false;
          editIndex = null;
-    addTask.textContent = "Add Task";
+        addTask.textContent = "Add Task";
+         localStorage.setItem('users',JSON.stringify(users))
+
     }
     else{
         let newId =users.length > 0 ? users[users.length - 1].id +1 :1
@@ -75,7 +77,6 @@ function renderUsers(){
                 isEditing =true
                 editIndex=index
                 addTask.textContent = 'Update Task'
-       localStorage.setItem('users',JSON.stringify(users))
 
                 renderUsers()
              }
